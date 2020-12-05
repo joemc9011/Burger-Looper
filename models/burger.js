@@ -7,3 +7,7 @@ orm.insertOne
 orm.updateOne
 
 orm.deleteOne
+
+module.exports = burger.js 
+
+// dont think export is right
