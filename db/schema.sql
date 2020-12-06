@@ -8,3 +8,4 @@ create table burgers (
     devored boolean default false,
     primary key (id)
 )
+
