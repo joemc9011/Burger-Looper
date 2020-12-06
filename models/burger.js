@@ -22,10 +22,7 @@ const burg = {
         });
     }
     
-}
-
-
+};
 
 module.exports = burg
 
-// dont think export is right
