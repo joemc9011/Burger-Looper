@@ -28,9 +28,9 @@ $(function(){
             newel += "</button>";
 
             newel +=
-            "<button class='delete-burger' data-id=" +
+            "<button class='delete-burger' data-id='" +
             burgers[i].id +
-            "'Delete!</button></ol>";
+            "'>Delete!</button></ol>";
 
             if (burgers[i].devoured) {
                 devourEl.append(newel);
@@ -74,7 +74,7 @@ $(function(){
         };
 
         $.ajax("/burgers", {
-            type: "post",
+            type: "POST",
             data: JSON.stringify(newburg),
             dataType: 'json',
             contentType: 'application/json'
