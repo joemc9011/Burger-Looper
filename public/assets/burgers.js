@@ -10,9 +10,9 @@ $(function(){
 
         for (var i = 0; i < leng; i++) {
             var newel =
-            "<li>" +
+            "<ol>" +
             burgers[i].id +
-            ". "+burgers[i].name +
+            ". "+ burgers[i].burger_name +
             "<button class='eaten' data-id='" +
             burgers[i].id +
             "' data-digest='" +
@@ -22,7 +22,7 @@ $(function(){
             if (burgers[i].devoured) {
                 newel += "Yum!";
             } else {
-                newel += "Ggrrgrrrg (thats a stomach noise, and not me having a stroke at my keyboard)";
+                newel += "Ggrrgrrrg";
             }
 
             newel += "</button>";
@@ -30,7 +30,7 @@ $(function(){
             newel +=
             "<button class='delete-burger' data-id=" +
             burgers[i].id +
-            "'Delete!</button></li>";
+            "'Delete!</button></ol>";
 
             if (burgers[i].devoured) {
                 devourEl.append(newel);
@@ -64,9 +64,10 @@ $(function(){
         event.preventDefault();
 
         var newburg = {
-            name: $("#burger_name")
+            burger_name: $("#burger_name")
             .val()
             .trim(),
+            // devoured: $()
 
             // note to self: figure out the devoured/notdevoured part, 
             // cat activity is possibly different than the layout you want
@@ -86,7 +87,7 @@ $(function(){
     $(document).on("click", ".delete-burger", function(event){
         var id = $(this).data("id");
 
-        $.ajax("/cats/" + id, {
+        $.ajax("/burgers/" + id, {
             type: "delete"
         }).then(function(){
             console.log("deleted burger", id);
